@@ -1,0 +1,126 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	
+	<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<div class="mainDiv">
+	<div class="leftDiv">
+	<table>
+		<tr>
+			<td><label class="labelData">From:</label></td>
+			<td><input id="inputFrom" class="inputFrom formData "></td>
+		</tr>
+		<tr>
+			<td><label class="labelData">To:</label></td>
+			<td><input id="inputTo" class="inputTo formData "></td>
+		</tr>
+		<tr>
+			<td><label class="labelData">Transport type:</label></td>
+			<td><input id="inputType" class="inputType formData"></td>
+		</tr>
+		<tr>
+			<td><label class="labelData">Transport num.:</label></td>
+			<td><input id="inputTypeNum" class="inputTypeNum formData "></td>
+		</tr>
+		<tr>
+			<td><label class="labelData">Seat:</label></td>
+			<td><input id="inputSeat" class="inputSeat formData "></td>
+		</tr>
+		<tr>
+			<td><label class="labelData">Note:</label></td>
+			<td><input id="inputNote" class="inputNote formData "></td>
+		</tr>
+	</table>
+	<div class="buttonAdd">ADD</div>	
+	<div class="buttonSort">SORT</div>
+
+	</div>
+	<div class="centDiv">
+	<div class="centDivIn">
+		<div class="inDiv">
+				<div class="header">BEFORE SORT</div>
+			<ul class="unsort" >
+				
+			</ul>		
+		</div>
+
+		<div class="outDiv">
+		<div class="header">AFTER SORT</div>
+			<ul class="sort">
+				
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="./source/route.js"></script>
+<script type="text/javascript" src="./source/framework.js"></script>
+<script type="text/javascript">
+	var inputObj = {},
+		sortedArr = [],
+		from = gQuary('#formData')[0],
+		to   = gQuary('#inputTo')[0],
+		type = gQuary('#inputType')[0],
+		tNum = gQuary('#inputTypeNum')[0],
+		seat = gQuary('#inputSeat')[0],
+		note = gQuary('#inputNote')[0];
+	
+	from.onclick = function(){gQuary('.inputFrom').removeClass('formDataRed');}
+	to.onclick = function(){gQuary('.inputTo').removeClass('formDataRed');}
+	type.onclick = function(){gQuary('.inputType').removeClass('formDataRed');}
+
+	gQuary('#buttonAdd')[0].onclick = function(){
+		
+		if( from.value &&
+			to.value &&
+			type.value  
+		  ){
+			inputObj[to.value] = [from.value, type.value, tNum.value, seat.value, note.value];	
+			var el = document.createElement("li");
+			el.innerHTML = "From: " + from.value + "; " +
+						   "To: "   + to.value   + "; " +
+						   "Type: " + type.value + "; " +
+						   "No.: "    + tNum.value + "; " +
+						   "Seat: " + seat.value + "; " +
+						   "Note: " + note.value + ";"
+
+			gQuary('#unsort')[0].appendChild(el);
+			from.value = '';
+			to.value = '';
+			type.value = '';
+			tNum.value = '';
+			seat.value = '';
+			note.value = '';
+
+		}
+		else{
+			if(!from.value)gQuary('.inputFrom').addClass('formDataRed');
+			if(!to.value)gQuary('.inputTo').addClass('formDataRed');
+			if(!type.value)gQuary('.inputType').addClass('formDataRed');
+		}
+	}
+	gQuary('#buttonSort')[0].onclick = function(){
+		if(sortedArr = route(inputObj)){
+			gQuary('#sort')[0].innerHTML = '';
+			for(var i =0, l = sortedArr.length; i < l; i++){
+
+				var el = document.createElement("li");
+				el.innerHTML = sortedArr[i];
+
+				gQuary('#sort')[0].appendChild(el);
+			}
+		} 
+	}
+
+	
+
+
+</script>
+
+	
+</body>
+</html>

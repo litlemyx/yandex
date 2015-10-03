@@ -1,0 +1,128 @@
+body{
+	margin:0;
+}
+
+label{
+	display: block;
+  outline: none;
+  vertical-align: middle;
+  font-size: 25px;
+  line-height: 30px;
+  color: #6F6F6F;
+}
+
+.mainDiv{
+	height: 100%;
+	width: 100%;
+	display:table;
+}
+
+.leftDiv{
+	display: table-cell;
+	height: 100%;
+	width: 20%;
+	background-color: #ADD6FF;
+}
+.centDiv{
+	display: table-cell;
+	height: 100%;
+	width:80%;
+	background-color: #DDEEFF;
+}
+
+.header{
+	text-align: center;
+	margin-right: 20%;
+}
+
+.centDivIn{
+	padding: 0;
+	margin:0;
+	height:90%;
+	width:100%;
+	
+}
+
+.inDiv{
+	display: inline-block;
+	height: 90%;
+	width: 40%;
+	vertical-align: top;
+	
+}
+.outDiv{
+	display: inline-block;
+	height: 90%;
+	width: 40%;
+	vertical-align: top;
+}
+
+.buttonSort{
+		
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	background-color: #2B95FF;
+	width: 20%;
+	height: 45px;
+	font-size: 40px;
+  	line-height: 40px;
+	color: #515151;
+	cursor: pointer;
+	
+}
+
+.sort{
+	overflow:scroll;
+	margin-left:10px;
+	height: 400px;
+	width: 70%;
+	
+	background-color: white;
+
+}
+.unsort{
+	overflow:scroll;
+	margin-left:10px;
+	height: 400px;
+	width: 70%;
+	
+	background-color: white;
+	
+}
+
+
+
+.buttonAdd{
+position: absolute;
+	bottom: 45px;
+	text-align: center;
+	background-color: #71B8FF;
+	width: 20%;
+	height: 45px;
+	font-size: 40px;
+  	line-height: 40px;
+	color: #6F6F6F;
+	cursor: pointer;
+
+}
+
+
+
+
+.wrapper .labelData {
+  font-size: 18px;
+  line-height: 18px;
+}
+.formData {
+  font-size: 16px;
+  line-height: 16px;
+  color: #595a4e;
+  border: 1px solid #e1e8ed;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.formDataRed{
+  background-color: #FF2D2D;
+}
